@@ -10,8 +10,8 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { useCategories } from '../context/categories-context'
-import { categorySchema } from '../data/schema'
+import { useProducts } from '../context/products-context'
+import { productSchema } from '../data/schema'
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>
@@ -20,9 +20,9 @@ interface DataTableRowActionsProps<TData> {
 export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {
-  const category = categorySchema.parse(row.original)
+  const product = productSchema.parse(row.original)
 
-  const { setOpen, setCurrentRow } = useCategories()
+  const { setOpen, setCurrentRow } = useProducts()
 
   return (
     <DropdownMenu modal={false}>
@@ -38,7 +38,7 @@ export function DataTableRowActions<TData>({
       <DropdownMenuContent align='end' className='w-[160px]'>
         <DropdownMenuItem
           onClick={() => {
-            setCurrentRow(category)
+            setCurrentRow(product)
             setOpen('update')
           }}
         >
@@ -47,7 +47,7 @@ export function DataTableRowActions<TData>({
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={() => {
-            setCurrentRow(category) 
+            setCurrentRow(product) 
             setOpen('delete')
           }}
         >
