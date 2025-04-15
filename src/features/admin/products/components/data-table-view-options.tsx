@@ -11,8 +11,12 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 const COLUMNS_FILTER_TABLE = {
+  image: 'Imagen',
   name: 'Nombre',
   description: 'Descripción',
+  quantity: 'Cantidad',
+  price: 'Precio',
+  category: 'Categoría'
 }
 
 interface DataTableViewOptionsProps<TData> {
